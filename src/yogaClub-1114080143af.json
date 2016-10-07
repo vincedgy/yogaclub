@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "yogaclub-145116",
+  "private_key_id": "1114080143af7417d829cd53b7286abc61565f93",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvwIBADANBgkqhkiG9w0BAQEFAASCBKkwggSlAgEAAoIBAQDB1OYe4kkOoCSU\nYn99TDSxbqwlClVlIAi8VBuw7tcsZVELE7HMMPktBsp7v9gTy77khpR4WxMZm389\noZHl9GlMB+OPcOeFDFx44Ag1h80Acmno0sakEvZP+yTgB6wmCPFFgtFynqmApWMF\nsMWU1Q2bOH581dtIoutAmhBPdNO0f73vynwAfRlDC6yl4igkmPSizYDM3R7NJpq8\n+bsdYa6OZMNEkf76jPskkSrivRGLf6bPB1LTrxR75X2vK//hQoCyxvkdNOaiFZ8o\n3W6Vr3tc7g4t8aMzqgeGTiZnYGR6H4SkA39Nw0SoVTup5g3TjLwmvqseHDvkAOQN\nHm/HmqE1AgMBAAECggEARsHlT5jjeodTUyexyperFKqGBO+ExOmwxq8dfLVzry09\nLIIAAb5O9/Tmrc4WnwNdqCbIxDba/hoZlPIKRJu4ZJzsoUxh99vPVgDSflgYqfUa\nXHe1M+gIKqJPj8i9OxVAnlNnCiSJVAEL6OPi/LXZxbQV2JRo/Fcc8fRLx/Wp4tWr\nhKQ+P9iruUfu3ErBbtSJNG975ij6KK7+YMuT9/wPv+J6LEsCheKxQ7du03eyD+xK\nlBdNcFVX+jO7VnIMlJesT6NxfUSWCKGY58hV2tEFvswF3zAz2H4AzcZDN7+ohk2k\nf/rxGyFawd1m0y/b19XJnir3a9VpbABV0oyfWe3GAQKBgQD3YkEsuPTQFRutdPW3\nq9KFtzHqYtdm5VCql60/KvpTuhI8PM/Ti+6SH+ECRCQZnok8/W1BIFcrBhGsZVxp\nrYytflGeU/Ogrsa/JemxjKeME0VrelqITtk5NZaANOGXPy0we+DxYaPQc43F6ax7\ncS4OBmlVJ0m53HoHekhsaMF4YQKBgQDIlShf4r6mNecBwb+8QeynwFPN/yLHFSah\nWV49KSW96sULTWKP7A8eFrNMf+GhV0IPlm3WjUMxPpKn9f1EYPMQuBPsu+vY9oWw\nL8uodNyc5TnQQGMnTIxk5VYtjyGeTE0VDIiVThIfS4Fip6CxVWIhsVdJpmNWUC+n\nbNgiCEpJVQKBgQD0XTEmHTluxjsF14/VM7wL6885yRMfiAtrx9IRoMGPrTDQIf3k\n6MfrvePFGkxSpkDIZ0nh2DFixWb11VY46X8Z7bpv3Fu+8IZQUQIMKXVjr7GWHlGJ\nbeGzWlTlJddlULmxt9yWc62eflagFlgTw9QLdJfdzqZMGxbLhiY+OChMYQKBgQC7\nouS5BgjovUXTW+a7+kOjDYSYEJL8/2k6yLoipqpaxhL8JrEMB3yA3iVua7arUlBG\n+qbXbSAtIebZXoFFBRh8TGa/L3BKbxrSnXN7q45w6vIxQPpAWhh/jhYW2m1Ngv0c\nsrPWT8keI2ju2/azzTbWY+pOyGrm5G4fxe9NrsmnXQKBgQCIUXg/cCV71iFpZ2AI\nXbb9P1pfnDu3oUcCoImeoOaIiMdni+hDqG0AqrUcomqlDJNaz6xCKHfLQYSk5ui9\nM9uGWdPE9U6QATkLIagl6pbFpnhyfOjHkknxqwtFDdYdUo6b3Pc7OGuW/D3BS8uB\nKa4I/RfwJrs4aX03bQS0j2WvXQ==\n-----END PRIVATE KEY-----\n",
+  "client_email": "yogaclub-145116@appspot.gserviceaccount.com",
+  "client_id": "110154508634760332378",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://accounts.google.com/o/oauth2/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/yogaclub-145116%40appspot.gserviceaccount.com"
+}

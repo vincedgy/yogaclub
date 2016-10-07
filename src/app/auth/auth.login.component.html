@@ -1,0 +1,21 @@
+<md-card class="demo-card demo-basic">
+  <md-toolbar color="primary">Login</md-toolbar>
+  <md-card-content>
+    <p class="error">{{errorMessage}}</p>
+    <form #formData='ngForm' (ngSubmit)="onSubmit(formData)">
+      <p>
+        <label> Enter email address
+<md-input md-md-input type="text" name="email" (ngModel)="email" required></md-input>
+</label>
+      </p>
+      <p>
+        <label> Password
+<md-input md-md-input type="password" name="password" (ngModel)="password" required></md-input>
+</label>
+      </p>
+
+      <button md-button (click)="onSubmit(formData)" class="md-primary btn btn-primary" ng-disabled="!formData.valid">Submit</button>
+      <a routerLink="/signup">Don't have an account?</a>
+    </form>
+  </md-card-content>
+</md-card>

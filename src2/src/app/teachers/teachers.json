@@ -1,0 +1,12 @@
+{
+    "teachers" : [
+        {
+            "id": 1,
+            "firstName": "Benoit"
+        },
+        {
+            "id": 2,
+            "firstName": "Françoise"
+        }
+    ]
+}

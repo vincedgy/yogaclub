@@ -1,0 +1,19 @@
+{ "teachers" : [
+  {
+    "id": 1,
+    "firstname": "Benoit",
+    "lastname": "",
+    "description": "",
+    "graduate": "",
+    "isAvailable": true
+  },
+  {
+    "id": 2,
+    "firstname": "Françoise",
+    "lastname": "",
+    "description": "",
+    "graduate": "",
+    "isAvailable": true
+  }
+]
+}
