@@ -7,13 +7,12 @@ import { TeacherDetailsComponent }  from './teacherDetails.component';
 
 import { TeacherService }  from './teacher.service';
 
-import { TeachersRouting } from './teachers.routing';
+// import { TeachersRouting } from './teachers.routing';
 
 @NgModule({
   imports: [
     CommonModule,
-    FormsModule,
-    TeachersRouting
+    FormsModule
   ],
   declarations: [
     TeachersListComponent,

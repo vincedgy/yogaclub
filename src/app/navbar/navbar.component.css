@@ -1,3 +1,13 @@
 .fill-remaining-space {
   flex: 1 1 auto;
 }
+
+.auth-indicators {
+  font-size: x-small;
+  color: red;
+}
+
+.active-link {
+  background-color: cornflowerblue;
+  color:blue;
+}

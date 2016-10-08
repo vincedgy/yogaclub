@@ -6,14 +6,19 @@ import { LoginComponent, SignupComponent } from './auth/auth.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ProfileComponent } from './profile/profile.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { TeachersListComponent }    from './teachers/teachersList.component';
+import { TeacherDetailsComponent }  from './teachers/teacherDetails.component';
+
+import { AuthService } from './auth/auth.service';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent, pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
-  { path: 'home', component: HomeComponent },
-  { path: 'profile', component: ProfileComponent },
-  { path: 'dashboard', component: DashboardComponent },
+  { path: 'profile', component: ProfileComponent, canActivate: [AuthService] },
+  { path: 'dashboard', component: DashboardComponent, canActivate: [AuthService] },
+  { path: 'teachers',  component: TeachersListComponent, canActivate: [AuthService] },
+  { path: 'teacher/:id', component: TeacherDetailsComponent, canActivate: [AuthService] },
   { path: '**', component: PageNotFoundComponent }
 ];
 

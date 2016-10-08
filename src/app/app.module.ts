@@ -3,7 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-
 import { MaterialModule } from '@angular/material';
 
 /* Application Modules */
@@ -35,6 +34,7 @@ const firebaseAuthConfig = {
   provider: AuthProviders.Password,
   method: AuthMethods.Password
 };
+//firebase:host:yogaclub-145116.firebaseio.com
 
 /* Routing stuff */
 import {

@@ -3,7 +3,7 @@
 
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { AngularFire } from 'angularfire2';
+import { AngularFire, FirebaseAuth } from 'angularfire2';
 import { AuthService } from './auth.service';
 
 @Component({
@@ -43,7 +43,7 @@ export class LoginComponent {
   errorMessage: String = '';
   constructor(private auth: AuthService, private af: AngularFire, private router: Router) {
     if (this.auth.isLoggedIn) {
-      console.log('Previous login is cleased');
+      console.log('Previous login is cleansed');
       this.auth.logout();
     }
   }
@@ -58,9 +58,9 @@ export class LoginComponent {
         .then(
         (success) => {
           console.log(success);
-          localStorage.setItem('auth_token', success.uid);
+          //localStorage.setItem('auth_token', success.uid);
           if ( this.auth.isLoggedIn ) {
-            this.router.navigate(['/dashboard']);
+            this.router.navigate(['/']);
           } else {
             this.errorMessage = 'Ouch. Something wrong with localstorage of your authorization !';
           }
@@ -75,4 +75,15 @@ export class LoginComponent {
         });
     }
   }
+}
+
+@Component({
+  selector: 'auth-status',
+  template: `
+    <div *ng-if="auth | async">You are logged in</div>
+    <div *ng-if="!(auth | async)">Please log in</div>
+  `
+})
+class App {
+  constructor (public auth: FirebaseAuth) {}
 }

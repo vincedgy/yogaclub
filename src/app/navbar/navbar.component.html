@@ -6,17 +6,27 @@
 </nav>-->
 
 <nav>
-    <a routerLink="/">Home</a>
-    <span *ngIf="user">
+    <a  [routerLink]="['/']"
+        [routerLinkActiveOptions]="{exact:true}"
+        [class.active]="router.url==='/'"
+        routerLinkActive="active-link">Home</a>
+
+    <span *ngIf="auth | async">
       <!--<a routerLink="/dashboard">Dashboard</a> &bull;-->
-      <a routerLink="/teachers" routerLinkActive="active">Liste des professeurs</a>
+      <a routerLink="/teachers" routerLinkActive="active-link">Liste des professeurs</a>
       <!--<a routerLink="/courses" routerLinkActive="active">Liste des cours</a>&bull;-->
     </span>
     <!-- This fills the remaining space of the current row -->
     <span class="fill-remaining-space"></span>
     <span>
-      <a routerLink="/login">Login</a>
-      <a routerLink="/signup">Sign up</a>
-      <span *ngIf="user"><a (click)="logout()">Logout</a></span>
+      <a *ngIf="!(auth | async)" routerLink="/login">Login</a>
+      <a *ngIf="!(auth | async)" routerLink="/signup">Sign up</a>
+      <span *ngIf="auth | async"><a (click)="logout()">Logout</a></span>
     </span>
+    <span class="auth-indicators">
+      <div *ngIf="auth | async">{{auth.auth.displayName ||auth.auth.email}}</div>
+      <div *ngIf="!(auth | async)">!</div>
+    </span>
+
 </nav>
+
