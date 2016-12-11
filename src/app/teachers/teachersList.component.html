@@ -1,0 +1,16 @@
+<md-card *ngFor="let teacher of teachers | async">
+   <md-card-title-group>
+      <img md-card-avatar src="http://thecatapi.com/api/images/get?format=src&type=gif">
+      <md-card-title>{{teacher.id}} : {{teacher.firstname}}</md-card-title>
+      <md-card-subtitle>{{teacher.graduate}}</md-card-subtitle>
+   </md-card-title-group>
+   <md-card-content>
+      <p>{{teacher.bio}}</p>
+   </md-card-content>
+   <md-card-actions>
+      Renseignements
+        <button md-button><a href="tel:+33169817536">01 69 81 75 36</a></button>
+        <button md-button><a href="emailto:yoga@tuvb.fr">yoga@tuvb.fr</a></button>
+   </md-card-actions>
+</md-card>
+<br/>&nbsp;

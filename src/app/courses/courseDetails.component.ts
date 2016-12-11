@@ -1,20 +1,20 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
-import { Teacher } from './teacher.model';
+import { Course } from './course.model';
 import { AngularFire } from 'angularfire2';
 
 @Component({
-  selector: 'app-teacher',
+  selector: 'app-course',
   template: `
-  <h2>Zoom sur un professeur</h2>
-  <div *ngIf="teacher">
-    Teacher selected : <input [(ngModel)]="teacher.firstname" />
+  <h2>Zoom sur un cours</h2>
+  <div *ngIf="course">
+    Course selected : <input [(ngModel)]="course.id" />
   </div>
 `
 })
 
-export class TeacherDetailsComponent implements OnInit {
-  @Input() teacher: Teacher;
+export class CourseDetailsComponent implements OnInit {
+  @Input() course: Course;
 
   constructor(
     private route: ActivatedRoute,

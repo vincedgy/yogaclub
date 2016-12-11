@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import {CoursesComponent} from '../courses/courses.component';
-import { TeachersModule }         from '../teachers/teachers.module';
 
 @Component({
   selector: 'app-yogaclub',

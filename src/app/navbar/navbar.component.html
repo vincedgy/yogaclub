@@ -1,32 +1,59 @@
-<!--<nav>
-  <a routerLink="/" routerLinkActive="active">Accueil</a>
-  <a routerLink="/teachers" routerLinkActive="active">Liste des professeurs</a>
-  <a routerLink="/courses" routerLinkActive="active">Liste des cours</a>
-  <a (click)="logout()">Logout</a>
-</nav>-->
+<div layout="row" layout-fill>
+  <md-toolbar>
 
-<nav>
-    <a  [routerLink]="['/']"
-        [routerLinkActiveOptions]="{exact:true}"
-        [class.active]="router.url==='/'"
-        routerLinkActive="active-link">Home</a>
+  <button md-button md-button color="accent" routerLink="/" class="md-icon-button md-primary" aria-label="Settings"></button>
+  <button md-button color="accent" routerLink="/" [routerLinkActiveOptions]="{exact:true}" [class.active]="router.url==='/'" routerLinkActive="active-link">Accueil</button>
+  <button md-button routerLink="/club" routerLinkActive="active-link" color="primary">L'association</button>
+  <button md-button routerLink="/courses" routerLinkActive="active-link" color="primary">Les cours</button>
+  <button md-button routerLink="/teachers" routerLinkActive="active-link" color="primary">Les professeurs</button>
+  <span *ngIf="authService.isLoggedIn() && auth | async">
+    <button md-button routerLink="/dashboard" routerLinkActive="active-link" color="warn">Votre espace</button>
+  </span>
+  <span *ngIf="!(auth | async)">
+  <button md-button routerLink="/login" routerLinkActive="active-link" color="primary">Login</button>
+  <button md-button routerLink="/signup" routerLinkActive="active-link" color="primary">Sign up</button>
+  </span>
 
-    <span *ngIf="auth | async">
-      <!--<a routerLink="/dashboard">Dashboard</a> &bull;-->
-      <a routerLink="/teachers" routerLinkActive="active-link">Liste des professeurs</a>
-      <!--<a routerLink="/courses" routerLinkActive="active">Liste des cours</a>&bull;-->
-    </span>
-    <!-- This fills the remaining space of the current row -->
-    <span class="fill-remaining-space"></span>
+
+  <span class="app-toolbar-filler"></span>
+  <span *ngIf="auth | async">
+    <button md-button (click)="logout()" routerLinkActive="active-link" color="primary">Logout</button>
+  </span>
+
+  </md-toolbar>
+</div>
+
+  <!--
+    <nav>
+        <button class="app-icon-button" (click)="sidenav.toggle()">
+          <i class="material-icons app-toolbar-menu">menu</i>
+        </button>
+
+    <button md-button md-button
+      color="accent" routerLink="/" class="md-icon-button md-primary" aria-label="Settings">
+        <img src="/assets/img/om-symbole_1.jpg" width="64px" height="64px">
+    </button>
     <span>
-      <a *ngIf="!(auth | async)" routerLink="/login">Login</a>
-      <a *ngIf="!(auth | async)" routerLink="/signup">Sign up</a>
-      <span *ngIf="auth | async"><a (click)="logout()">Logout</a></span>
+      <button md-button
+      color="accent" routerLink="/" [routerLinkActiveOptions]="{exact:true}" [class.active]="router.url==='/'" routerLinkActive="active-link">Accueil</button>
     </span>
-    <span class="auth-indicators">
-      <div *ngIf="auth | async">{{auth.auth.displayName ||auth.auth.email}}</div>
-      <div *ngIf="!(auth | async)">!</div>
-    </span>
+      <button md-button routerLink="/club" routerLinkActive="active-link" color="primary">L'association</button>
+      <button md-button routerLink="/courses" routerLinkActive="active-link" color="primary">Les cours</button>
+      <button md-button routerLink="/teachers" routerLinkActive="active-link" color="primary">Les professeurs</button>
+      <span *ngIf="authService.isLoggedIn() && auth | async">
+        <button md-button routerLink="/dashboard" routerLinkActive="active-link" color="warn">Votre espace</button>
+      </span>
 
-</nav>
+        <span flex="" class="flex"></span> &nbsp;
+        <span *ngIf="!(auth | async)">
+      <button md-button routerLink="/login" routerLinkActive="active-link" color="primary">Login</button>
+      </span>
+        <span *ngIf="!(auth | async)">
+      <button md-button routerLink="/signup" routerLinkActive="active-link" color="primary">Sign up</button></span>
+        <span *ngIf="auth | async">
+      <button md-button (click)="logout()" routerLinkActive="active-link" color="primary">Logout</button>
+    </span>
+    </nav>
+  </md-toolbar>-->
+
 

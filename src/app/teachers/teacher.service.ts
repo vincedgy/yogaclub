@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Teacher } from '../models/teacher.model';
+import { Teacher } from './teacher.model';
 import { AngularFire, FirebaseListObservable } from 'angularfire2';
 
 @Injectable()

@@ -1,0 +1,21 @@
+.teacher {
+  list-style: none;
+  width: 80%;
+  margin: 5px;
+  padding: 10px;
+  border-bottom: solid 1px gray;
+}
+
+.teacher:hover {
+  cursor:pointer;
+}
+
+.badge {
+  background-color: darkgreen;
+  color: white;
+  margin: 10px;
+}
+
+.available {
+  background-color: lightgreen;
+}

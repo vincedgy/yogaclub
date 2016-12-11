@@ -3,7 +3,6 @@
 
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { AngularFire, FirebaseAuth } from 'angularfire2';
 import { AuthService } from './auth.service';
 
 @Component({
@@ -12,25 +11,24 @@ import { AuthService } from './auth.service';
 })
 
 export class SignupComponent {
-
-  constructor(private af: AngularFire, private router: Router) { }
-
+  errorMessage: String = '';
+  constructor(private auth: AuthService, private router: Router) { }
   onSubmit(formData) {
     if (formData.valid) {
       // console.log(formData.value);
-      this.af.auth.createUser({
-        email: formData.value.email,
-        password: formData.value.password
-      }).then(
+      this.auth.createUser({email: formData.value.email, password: formData.value.password}).then(
         (success) => {
-          console.log(success);
+          this.errorMessage = 'User is now created. You can log in.';
           this.router.navigate(['/login']);
         }).catch(
         (err) => {
-          console.log(err);
-          this.router.navigate(['/login']);
+          this.errorMessage = err.message;
         });
     }
+  }
+  cancel(formData) {
+    formData.reset();
+    this.errorMessage = '';
   }
 }
 
@@ -38,52 +36,35 @@ export class SignupComponent {
   templateUrl: './auth.login.component.html',
   styleUrls: ['./auth.component.css']
 })
-
 export class LoginComponent {
+  isLoggedIn: boolean = false;
   errorMessage: String = '';
-  constructor(private auth: AuthService, private af: AngularFire, private router: Router) {
+  constructor(private auth: AuthService, private router: Router) {
     if (this.auth.isLoggedIn) {
       console.log('Previous login is cleansed');
       this.auth.logout();
     }
   }
   onSubmit(formData) {
-    if (formData.valid) {
-      // console.log(formData.value);
-      this.af.auth.login({
-        email: formData.value.email,
-        password: formData.value.password
-      })
-        // On succesfull login
+    if (! this.isLoggedIn && formData.valid) {
+      this.auth.login({ email: formData.value.email, password: formData.value.password})
         .then(
         (success) => {
-          console.log(success);
-          //localStorage.setItem('auth_token', success.uid);
+          console.log('Login success' , success);
+          this.isLoggedIn = true;
           if ( this.auth.isLoggedIn ) {
             this.router.navigate(['/']);
           } else {
-            this.errorMessage = 'Ouch. Something wrong with localstorage of your authorization !';
+            this.errorMessage = 'Error. Authorization is not complited';
           }
 
         })
-        // On unsuccesfull login
         .catch(
         (err) => {
-          // console.log(err);
+          console.log(err);
+          this.isLoggedIn = false;
           this.errorMessage = err.message;
-          //this.router.navigate(['/login']);
         });
     }
   }
-}
-
-@Component({
-  selector: 'auth-status',
-  template: `
-    <div *ng-if="auth | async">You are logged in</div>
-    <div *ng-if="!(auth | async)">Please log in</div>
-  `
-})
-class App {
-  constructor (public auth: FirebaseAuth) {}
 }

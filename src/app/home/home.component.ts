@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { YogaclubComponent } from '../yogaclub/yogaclub.component';
+import { MdCardModule } from '@angular/material';
 
 @Component({
   selector: 'app-home',

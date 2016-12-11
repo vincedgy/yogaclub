@@ -1,9 +1,7 @@
 //https://medium.freecodecamp.com/angular-2-authentication-made-easy-with-firebase-246c282d9ef8#.l13e9osp2
-
-import { Component, ViewChild, ViewContainerRef } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from './auth/auth.service';
-import {MdToolbar, MdButton, MdSidenav, MdDialog, MdDialogConfig} from '@angular/material';
 
 export class SettingsDialog {
 
@@ -15,13 +13,10 @@ export class SettingsDialog {
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  @ViewChild('sidenav') sidenav: MdSidenav;
-  user: any;
+  isDarkTheme: boolean = false;
   title = "yoga Club - TUVB";
 
   constructor(
-    public dialog: MdDialog, 
-    public vcr: ViewContainerRef,
     private auth: AuthService,
     private router: Router) {
 
@@ -30,9 +25,4 @@ export class AppComponent {
     }
   };
 
-  openDialog() {
-    const config = new MdDialogConfig();
-    config.viewContainerRef = this.vcr;
-    this.dialog.open(SettingsDialog, config);
-  }
 }

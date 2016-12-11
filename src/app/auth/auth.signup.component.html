@@ -1,19 +1,15 @@
-<md-card class="demo-card demo-basic">
-  <md-toolbar color="primary">Signup</md-toolbar>
+<md-card>
+  <md-toolbar color="primary">Créez votre profile</md-toolbar>
   <md-card-content>
+    <br/>
+    <p class="error">{{errorMessage}}</p>
     <form #formData='ngForm' (ngSubmit)="onSubmit(formData)">
-      <p>
-        <label> Enter email address
-<md-input type="text" name="email" (ngModel)="email" required></md-input>
-</label>
-      </p>
-      <p>
-        <label> Password
-<md-input type="password" name="password" (ngModel)="password" required></md-input>
-</label>
-      </p>
-
-      <button md-button (click)="onSubmit(formData)" class="md-primary btn btn-primary" ng-disabled="!formData.valid">Submit</button>
+      <md-input style="width: 100%" placeholder="Votre email" type="text" name="email" (ngModel)="email" required></md-input>
+      <br/>
+      <md-input style="width: 100%" placeholder="Votre password" type="password" name="password" (ngModel)="password" required></md-input>
+      <br/>
+      <button md-raised-button type="submit" class="md-primary btn btn-primary" ng-disabled="!formData.valid">OK</button>
+      <button md-raised-button type="button" (click)="cancel(formData)" class="md-primary btn btn-primary">Cancel</button>
       <!--<a routerLink="/signup">Don't have an account?</a>-->
     </form>
   </md-card-content>

@@ -1,24 +1,31 @@
-// user.service.ts
 import { Injectable } from '@angular/core';
-import { AngularFire } from 'angularfire2';
+import { AngularFire, FirebaseObjectObservable } from 'angularfire2';
 import { CanActivate, CanActivateChild, Router, RouterStateSnapshot, ActivatedRouteSnapshot } from '@angular/router';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/first';
-import { Observable } from 'rxjs/Observable';
+// import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class AuthService implements CanActivate, CanActivateChild {
   private user: any;
 
-  constructor(private af: AngularFire, private router: Router) { }
+  constructor(private af: AngularFire, private router: Router) {
+    this.af.auth.subscribe(auth => {
+      if (auth) {
+        this.user = af.database.object('/users/' + auth.uid);
+      } else {
+        this.user = new FirebaseObjectObservable<any>();
+      }
+    });
+  }
 
   logout() {
-    this.af.auth.logout();
+    this.user = null;
+    return this.af.auth.logout();
   }
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
     let url: string = state.url;
-    console.log('AuthGuard#canActivate called for ' + url);
     return this.checkLogin(url);
   }
 
@@ -27,7 +34,7 @@ export class AuthService implements CanActivate, CanActivateChild {
   }
 
   checkLogin(url: string): boolean {
-    if (this.isLoggedIn()) {
+    if (this.user && this.isLoggedIn()) {
       return true;
     } else {
       console.log('AuthGuard#canActivate called for ' + url);
@@ -58,4 +65,13 @@ export class AuthService implements CanActivate, CanActivateChild {
       return this.user;
     }
   }
+
+  login(credentials) {
+    return this.af.auth.login({email: credentials.email, password: credentials.password});
+  }
+
+  createUser(credentials) {
+    return this.af.auth.createUser({email: credentials.email, password: credentials.password});
+  }
+
 }

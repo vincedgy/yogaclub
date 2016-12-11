@@ -1,13 +1,13 @@
-<h3>{{title}}</h3>
-
-<div>
-
+<header>
   <app-navbar></app-navbar>
+</header>
 
-</div>
+<md-sidenav-layout [class.m2app-dark]="isDarkTheme" color="primary">
+  <div class="app-content">
+    <router-outlet></router-outlet>  
+  </div>  
+</md-sidenav-layout>
 
-<div>
-
-  <router-outlet></router-outlet>
-
-</div>
+<footer>
+  <span class="footer_copyright">(c) yogaClub - VinceDgy v0.1b</span>
+</footer>
