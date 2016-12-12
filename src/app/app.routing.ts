@@ -19,7 +19,8 @@ const appRoutes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
   { path: 'profile', component: ProfileComponent, canActivate: [AuthService] },
-  { path: 'dashboard', component: DashboardComponent, canActivate: [AuthService] },
+  /*{ path: 'dashboard', component: DashboardComponent, canActivate: [AuthService] },*/
+  { path: 'dashboard', component: DashboardComponent },
   { path: 'club',  component: YogaclubComponent },
   { path: 'courses',  component: CoursesListComponent },
   { path: 'courses/:id',  component: CourseDetailsComponent },
